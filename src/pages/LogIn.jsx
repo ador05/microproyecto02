@@ -24,7 +24,6 @@ function LogIn() {
                 <Row className='px-4 my-5'>
                 <Col sm>
                 <h1>Inicio de sesión</h1> 
-                
                 </Col>
                 </Row>
                 <Row className='px-4 my-5'>
@@ -32,10 +31,10 @@ function LogIn() {
                     <Button onClick={handleClick} >Iniciar Sesion con Google</Button>
                 </Col>
                 </Row>
-                <Row className='px-4 my-5'>
+                <Row className='px-0 my-5'>
                 <Col sm>
                 <Form>
-                  <Row className="mb-3">
+                  <Row className='px-4 my-5'>
             <Form.Group as={Col} controlId="formGridEmail">
               <Form.Label>Correo Electronico</Form.Label>
               <Form.Control value={correo} onChange={(e) => setcorreo(e.target.value) } placeholder="Ingrese correo electronico" />
@@ -45,12 +44,16 @@ function LogIn() {
               <Form.Control type="password" placeholder="Ingrese contraseña" />
             </Form.Group>
                   </Row>
-            
-                  
-            
-                  <Button variant="primary" type="submit">
-            enviar
-                  </Button>
+              <Row className='px-4 my-5'>
+              <Col sm={6}>
+              <Button variant="primary" type="submit">enviar</Button>
+              </Col>
+              
+              </Row>
+                
+                  <Row className='px-4 my-5'>
+                    <p>¿No tienes una cuenta? <Button variant="outline-dark" href="iniciarsesion">Registrate</Button></p>
+                  </Row>
                 </Form>
                 
                 
