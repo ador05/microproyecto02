@@ -3,8 +3,23 @@ import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
+import { useState } from 'react';
+import { useEffect } from 'react';
+import { createUser } from '../controllers/users';
+
 
 function SignUpPage() {
+    const [correo, setcorreo] = useState('');
+    const [contra, setcontra] = useState('');
+    const [nombre, setNombre] = useState('');
+    const [apellido, setApellido] = useState('');
+    const [usuario, setUsuario] = useState('');
+
+
+    
+
+
+
     return (
         
         <div>
@@ -21,17 +36,28 @@ function SignUpPage() {
                   <Row className="mb-3">
             <Form.Group as={Col} controlId="formGridEmail">
               <Form.Label>Correo Electronico</Form.Label>
-              <Form.Control type="email" placeholder="Ingrese correo electronico" />
+              <Form.Control value={correo} onChange={(e) => setcorreo(e.target.value) } placeholder="Ingrese correo electronico" />
             </Form.Group>
             <Form.Group as={Col} controlId="formGridPassword">
               <Form.Label>Contraseña</Form.Label>
-              <Form.Control type="password" placeholder="Ingrese contraseña" />
+              <Form.Control value={contra} onChange={(e) => setcontra(e.target.value) }placeholder="Ingrese contraseña" />
+            </Form.Group>
+                  </Row>
+
+                  <Row className="mb-3">
+            <Form.Group as={Col} controlId="formGridEmail">
+              <Form.Label>Primer Nombre</Form.Label>
+              <Form.Control value={nombre} onChange={(e) => setNombre(e.target.value) } placeholder="Ingrese su primer nombre" />
+            </Form.Group>
+            <Form.Group as={Col} controlId="formGridPassword">
+              <Form.Label>Apellido</Form.Label>
+              <Form.Control value={apellido} onChange={(e) => setApellido(e.target.value) }placeholder="Ingrese su apellido" />
             </Form.Group>
                   </Row>
             
-                  <Form.Group className="mb-3" controlId="formGridAddress1">
+                  <Form.Group className="mb-3" controlId="usuario">
             <Form.Label>usuario</Form.Label>
-            <Form.Control placeholder="@nombre-de-usuario" />
+            <Form.Control value={usuario} onChange={(e) => setUsuario(e.target.value)} placeholder="@nombre-de-usuario" />
                   </Form.Group>
             
             
@@ -46,22 +72,20 @@ function SignUpPage() {
             <Form.Group as={Col} controlId="formGridState">
               <Form.Label>Membresias</Form.Label>
               <Form.Select defaultValue="Choose...">
-                <option>elija...</option>
+              <option>elija...</option>
                 <option>...</option>
+
               </Form.Select>
             </Form.Group>
                   </Row>
             
-                  <Button variant="primary" type="submit">
-            enviar
-                  </Button>
+                  <Button variant="primary" onClick= {createUser(correo,contra,nombre,apellido,usuario)}>enviar</Button>
                 </Form>
                 
                 
                 </Col>
                 </Row>
-                </Container>
-            
+                </Container>         
           
             
         </div>
