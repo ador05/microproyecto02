@@ -49,7 +49,7 @@ function SignUpPage() {
                 <Row className='px-4 my-5'>
                 <Col sm={12}>
                 <h1>Registro de usuario</h1> 
-                <p>¿Ya tienes una cuenta? <Button variant="outline-dark" href="iniciarsesion">Inicia sesion aquí</Button></p>
+                <p>¿Ya tienes una cuenta? <Button variant="outline-dark" href="/">Inicia sesion aquí</Button></p>
                 </Col>
                 </Row>
                 <Row className='px-4 my-5'>
@@ -101,7 +101,7 @@ function SignUpPage() {
             </Form.Group>
                   </Row>
             
-                  <Button type="submit" variant="primary">enviar</Button>
+                  <Button type="submit" variant="primary">Enviar</Button>
                 </Form>
                 
                 

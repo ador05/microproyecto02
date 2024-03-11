@@ -1,4 +1,39 @@
-videojuegos = [
+import React, { useEffect } from 'react';
+import 'bootstrap/dist/css/bootstrap.css';
+import {Navbar, Container, Nav} from "react-bootstrap"
+const clubes = [
+    {
+      "ID": "1",
+      "nombre": "Club de Aventureros",
+      "descripcion": "Explora lugares misteriosos y descubre tesoros ocultos con otros entusiastas de la aventura.",
+      "videojuegos": ["1", "3", "11"]
+    },
+    {
+      "ID": "2",
+      "nombre": "Club de Estrategia",
+      "descripcion": "Reúnete con estrategas brillantes para debatir tácticas, resolver enigmas y conquistar mundos virtuales.",
+      "videojuegos": ["4", "15", "16"]
+    },
+    {
+      "ID": "3",
+      "nombre": "Club de Constructores",
+      "descripcion": "Comparte tus creaciones en Minecraft, diseña estructuras asombrosas y colabora en proyectos épicos.",
+      "videojuegos": ["7", "8", "14"]
+    },
+    {
+      "ID": "4",
+      "nombre": "Club de Fútbol Virtual",
+      "descripcion": "Forma parte de un equipo virtual, compite en torneos y demuestra tus habilidades en FIFA 22.",
+      "videojuegos": ["9", "10", "18"]
+    },
+    {
+      "ID": "5",
+      "nombre": "Club de Cazadores de Zombis",
+      "descripcion": "Únete a otros supervivientes en la lucha contra hordas de no muertos en juegos como Left 4 Dead o Resident Evil.",
+      "videojuegos": ["2", "13", "17"]
+    }
+  ]
+  const videojuegos = [
     {
       "ID": "1",
       "titulo": "The Witcher 3: Wild Hunt",
@@ -120,4 +155,59 @@ videojuegos = [
       "descripcion": "Embárcate en un viaje al inframundo y desafía a los dioses en este juego de acción y mitología."
     }
   ]
+  function mostrarclubes() {
+    const clubesContainer = document.getElementById("clubes-container");
+    
+    
+    clubesContainer.innerHTML = "";
+    
+    clubes.forEach(club => {
+      const clubElement = document.createElement("div");
+      clubElement.classList.add("card", "mb-3");
+      clubElement.innerHTML = `
+          <div class="card-body">
+            <h2 class="card-title">${club.nombre}</h2>
+            <p class="card-text">${club.descripcion}</p>
+            <ul class="list-group list-group-flush">
+            ${club.videojuegos.map(videojuegoID => {
+              const videojuego = videojuegos.find(v => v.ID === videojuegoID);
+              return `<li class="list-group-item">${videojuego.titulo}</li>`;
+            }).join("")}
+            </ul>
+            <button class="btn btn-primary">Unirse al club</button>
+          </div>
+      `;
+      clubElement.querySelector("button").addEventListener("click", () => {
+        
+        console.log(`Unirse al club: ${club.nombre}`);
+      });
+      clubesContainer.appendChild(clubElement);
+    });
+  }
+    export default function Clubs() {
+        useEffect(() => {
+          mostrarclubes();
+        }, []);
+      
+        return (
+
+          <div className="Clubs">
+                <Navbar expand="lg" className="bg-body-tertiary">
+    <Container>
+      <Navbar.Brand href="clubes">Clubes</Navbar.Brand>
+      <Navbar.Toggle aria-controls="basic-navbar-nav" />
+      <Navbar.Collapse id="basic-navbar-nav">
+        <Nav className="me-auto">
+        <Nav.Link href="homepage">Video Juegos</Nav.Link>
+          <Nav.Link href="juegos">Juegos</Nav.Link>
+          <Nav.Link href="perfil">ver perfil</Nav.Link>
+          
+        </Nav>
+      </Navbar.Collapse>
+    </Container>
+  </Navbar>
+            <div id="clubes-container"></div>
+          </div>
+        );
+      }
  
