@@ -15,7 +15,7 @@ const router = createBrowserRouter([
     errorElement: <div><h1>404 Page Not Found</h1></div>,
   },
   {
-    path: '/iniciarsesion',
+    path: '/',
     element: <LogIn />,
   },
   {
