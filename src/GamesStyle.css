@@ -1,0 +1,41 @@
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 20px auto;
+    width: 80%; /* Adjust container width as needed */
+  }
+  
+  .card {
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.2s ease-in-out;
+    width: 500px; /* Adjust card width as needed */
+  }
+  
+  .card:hover {
+    transform: scale(1.02); /* Slight hover zoom effect */
+  }
+  
+  .card-image {
+    width: 100%;
+    /* Adjust image size as needed */
+    object-fit: cover; /* Scales image to fit within card */
+  }
+  
+  .card-content {
+    padding-top: 10px;
+  }
+  
+  .card-title {
+    margin-bottom: 5px;
+  }
+  
+  .card-text {
+    color: #333;
+    line-height: 1.5;
+  }
